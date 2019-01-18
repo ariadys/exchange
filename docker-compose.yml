@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  shopeetest:
+    image: vuejs/shopeetest
+    build: .
+    environment:
+      NODE_ENV: development
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 8080:8080
+    stdin_open: true
+    tty: true

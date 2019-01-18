@@ -100,6 +100,57 @@
             </div>
           </div>
 
+          <div class="card-currency" v-show="isShowingMyr">
+            <div class="row ml-0 mr-0">
+            <div class="col-md-4 card-currency-info">
+              <h3>MYR</h3>
+              <p class="about-currency">MYR - Malaysian Ringgit</p>
+              <p class="ex-currency">1 USD = MYR {{ currData['MYR'] | toCurrency }}</p>
+            </div>
+            <div class="col-md-7 total-currency">
+              <h3 v-if="jpy">MYR {{ myr | toCurrency }}</h3>
+              <h3 v-else>MYR {{ myrTotal | toCurrency }}</h3>
+            </div>
+            <div class="col-md-1 card-currency-delete">
+              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+            </div>
+            </div>
+          </div>
+
+          <div class="card-currency" v-show="isShowingMyr">
+            <div class="row ml-0 mr-0">
+            <div class="col-md-4 card-currency-info">
+              <h3>CHF</h3>
+              <p class="about-currency">CHF - Malaysian Ringgit</p>
+              <p class="ex-currency">1 USD = MYR {{ currData['MYR'] | toCurrency }}</p>
+            </div>
+            <div class="col-md-7 total-currency">
+              <h3 v-if="jpy">MYR {{ myr | toCurrency }}</h3>
+              <h3 v-else>MYR {{ myrTotal | toCurrency }}</h3>
+            </div>
+            <div class="col-md-1 card-currency-delete">
+              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+            </div>
+            </div>
+          </div>
+
+          <div class="card-currency" v-show="isShowingCad">
+            <div class="row ml-0 mr-0">
+            <div class="col-md-4 card-currency-info">
+              <h3>CAD</h3>
+              <p class="about-currency">CAD - Canadian Dollars</p>
+              <p class="ex-currency">1 USD = CAD {{ currData['CAD'] | toCurrency }}</p>
+            </div>
+            <div class="col-md-7 total-currency">
+              <h3 v-if="cad">CAD {{ cad | toCurrency }}</h3>
+              <h3 v-else>CAD {{ cadTotal | toCurrency }}</h3>
+            </div>
+            <div class="col-md-1 card-currency-delete">
+              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+            </div>
+            </div>
+          </div>
+
           <div class="clearfix"></div>
           <div class="row">
             <button @click="isHide ^= true" v-on:click="isShowing = !isShowing" v-show="isShowing" id="toggle" class="col-md-3 col-md-offset-5 add-currency col-centered">
@@ -112,7 +163,10 @@
                   <option value="IDR">IDR</option>
                   <option value="CHF">CHF</option>
                   <option value="JPN">JPN</option>
-                  <option value="JPN">JPN</option>
+                  <option value="MYR">MYR</option>
+                  <option value="CHF">CHF</option>
+                  <option value="KRW">KRW</option>
+                  <option value="INR">INR</option>
                 </select>
                 <button type="submit" @click='addMore()' class="btn-add">Add</button>
               </div>
@@ -149,11 +203,11 @@ export default {
       isShowingGbp: true,
       isShowingSgd: true,
       isShowingJpy: true,
-      isShowingChf: true,
-      isShowingMyr: true,
-      isShowingCad: true,
-      isShowingKwr: true,
-      isShowingInr: true,
+      isShowingChf: false,
+      isShowingMyr: false,
+      isShowingCad: false,
+      isShowingKrw: false,
+      isShowingInr: false,
     }
   },
   filters: {
@@ -203,7 +257,7 @@ export default {
     cadTotal: function() {
       return this.currData['CAD'] * 10;
     },
-    kwrTotal: function() {
+    krwTotal: function() {
       return this.currData['KWR'] * 10;
     },
     inrTotal: function() {
@@ -249,7 +303,7 @@ export default {
        this.lookupCountUsd()
       } 
     },
-    kwr: function () {
+    krw: function () {
       if (this.countUsd.length > 0) {
        this.lookupCountUsd()
       } 
@@ -324,22 +378,22 @@ body {
 }
 
 h4 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: normal;
+  color: #fff !important;
+  font-size: 20px !important;
+  font-weight: normal !important;
 }
 
 h3 {
-  color: #5A5A5A;
-  font-size: 49px;
-  font-weight: 700;
-  margin-bottom: 2px;
-  margin-top: -3px;
+  color: #5A5A5A !important;
+  font-size: 49px !important;
+  font-weight: 700 !important;
+  margin-bottom: 2px !important;
+  margin-top: -3px !important;
 }
 
 a:hover {
   opacity: 0.8;
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
@@ -370,7 +424,7 @@ select > option {
 }
 
 .box {
-  position:absolute;
+  position:absolute !important;
   top:0;
   right:0;
   bottom:0;
@@ -378,7 +432,7 @@ select > option {
   z-index:99;
   margin:auto;
   height:720px;
-  width:70%;
+  width:70% !important;
   background: #fff;
   border-radius: 40px;
   box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.16);
@@ -393,15 +447,15 @@ select > option {
 }
 
 .box-header-left {
-  padding: 30px 0 30px 67px;
+  padding: 30px 0 30px 67px !important;
 }
 
 .box-header-right {
-  padding: 40px 67px 30px 0;
+  padding: 40px 67px 30px 0 !important;
 }
 
 .bold {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .currency-usd {
@@ -478,7 +532,7 @@ select > option {
 }
 
 .delete:hover {
-  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 0.5;
   cursor: pointer;
 }
