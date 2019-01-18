@@ -4,11 +4,11 @@
       <div class="col-md-12 box">
         <div class="box-header">
           <div class="row">
-          <div class="col-md-8 box-header-left">
+          <div class="col-md-8 col-12 box-header-left">
             <h4>USD - United States Dollars</h4>
             <h4 class="bold">USD</h4>
           </div>
-          <div class="col-md-4 box-header-right">
+          <div class="col-md-4 col-12 box-header-right">
             <input type="number" value="10" class="currency-usd" v-model="countUsd" min="0">
           </div>
           </div>
@@ -17,17 +17,17 @@
 
           <div class="card-currency" v-show="isShowingIdr">
             <div class="row ml-0 mr-0">
-            <div class="col-md-4 card-currency-info">
+            <div class="col-5 card-currency-info">
               <h3>IDR</h3>
               <p class="about-currency">IDR - Indonesian Rupiah</p>
               <p class="ex-currency">1 USD = IDR {{ currData['IDR'] | toCurrency }}</p>
             </div>
-            <div class="col-md-7 total-currency">
+            <div class="col-md-6 total-currency">
               <h3 v-if="idr">IDR {{ idr | toCurrency }}</h3>
               <h3 v-else>IDR {{ idrTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingIdr = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingIdr = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
               <h3 v-else>EUR {{ eurTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingEur = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingEur = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
               <h3 v-else>GBP {{ gbpTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingGbp = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingGbp = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
               <h3 v-else>SGD {{ sgdTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingSgd = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingSgd = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
               <h3 v-else>JPY {{ jpyTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingJpy = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -108,28 +108,28 @@
               <p class="ex-currency">1 USD = MYR {{ currData['MYR'] | toCurrency }}</p>
             </div>
             <div class="col-md-7 total-currency">
-              <h3 v-if="jpy">MYR {{ myr | toCurrency }}</h3>
+              <h3 v-if="myr">MYR {{ myr | toCurrency }}</h3>
               <h3 v-else>MYR {{ myrTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingMyr = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
 
-          <div class="card-currency" v-show="isShowingMyr">
+          <div class="card-currency" v-show="isShowingChf">
             <div class="row ml-0 mr-0">
             <div class="col-md-4 card-currency-info">
               <h3>CHF</h3>
-              <p class="about-currency">CHF - Malaysian Ringgit</p>
-              <p class="ex-currency">1 USD = MYR {{ currData['MYR'] | toCurrency }}</p>
+              <p class="about-currency">CHF - Switzerland Franc</p>
+              <p class="ex-currency">1 USD = CHF {{ currData['CHF'] | toCurrency }}</p>
             </div>
             <div class="col-md-7 total-currency">
-              <h3 v-if="jpy">MYR {{ myr | toCurrency }}</h3>
-              <h3 v-else>MYR {{ myrTotal | toCurrency }}</h3>
+              <h3 v-if="chf">CHF {{ chf | toCurrency }}</h3>
+              <h3 v-else>CHF {{ chfTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingChf = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -146,7 +146,41 @@
               <h3 v-else>CAD {{ cadTotal | toCurrency }}</h3>
             </div>
             <div class="col-md-1 card-currency-delete">
-              <a class="delete" v-on:click="isShowingJpy = false"><img src="../assets/img/delete.png" width="20"></a>
+              <a class="delete" v-on:click="isShowingCad = false"><img src="/static/img/delete.png" width="20"></a>
+            </div>
+            </div>
+          </div>
+
+          <div class="card-currency" v-show="isShowingKrw">
+            <div class="row ml-0 mr-0">
+            <div class="col-md-4 card-currency-info">
+              <h3>KRW</h3>
+              <p class="about-currency">KRW - South Korean Won</p>
+              <p class="ex-currency">1 USD = KRW {{ currData['KRW'] | toCurrency }}</p>
+            </div>
+            <div class="col-md-7 total-currency">
+              <h3 v-if="krw">KRW {{ krw | toCurrency }}</h3>
+              <h3 v-else>KRW {{ krwTotal | toCurrency }}</h3>
+            </div>
+            <div class="col-md-1 card-currency-delete">
+              <a class="delete" v-on:click="isShowingKrw = false"><img src="/static/img/delete.png" width="20"></a>
+            </div>
+            </div>
+          </div>
+
+          <div class="card-currency" v-show="isShowingInr">
+            <div class="row ml-0 mr-0">
+            <div class="col-md-4 card-currency-info">
+              <h3>INR</h3>
+              <p class="about-currency">INR - Indian Rupee</p>
+              <p class="ex-currency">1 USD = INR {{ currData['INR'] | toCurrency }}</p>
+            </div>
+            <div class="col-md-7 total-currency">
+              <h3 v-if="inr">INR {{ inr | toCurrency }}</h3>
+              <h3 v-else>INR {{ inrTotal | toCurrency }}</h3>
+            </div>
+            <div class="col-md-1 card-currency-delete">
+              <a class="delete" v-on:click="isShowingInr = false"><img src="/static/img/delete.png" width="20"></a>
             </div>
             </div>
           </div>
@@ -159,12 +193,13 @@
             <div v-show="isHide" id="currency" class="col-md-4 col-md-offset-5 col-centered">
               <div class="form-inline">
                 <select class="add-option" name="add-currency" v-model="addCurrency">
-                  <option value="JPY">JPY</option>
                   <option value="IDR">IDR</option>
+                  <option value="SGD">SGD</option>
+                  <option value="JPY">JPY</option>
+                  <option value="CAD">CAD</option>
+                  <option value="GBP">GBP</option>
                   <option value="CHF">CHF</option>
-                  <option value="JPN">JPN</option>
                   <option value="MYR">MYR</option>
-                  <option value="CHF">CHF</option>
                   <option value="KRW">KRW</option>
                   <option value="INR">INR</option>
                 </select>
@@ -258,7 +293,7 @@ export default {
       return this.currData['CAD'] * 10;
     },
     krwTotal: function() {
-      return this.currData['KWR'] * 10;
+      return this.currData['KRW'] * 10;
     },
     inrTotal: function() {
       return this.currData['INR'] * 10;
@@ -323,8 +358,40 @@ export default {
   },
   methods: {
     addMore() {
-      if(this.addCurrency == 'JPN') {
+      if(this.addCurrency == 'JPY') {
+        this.isShowingJpy = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'MYR'){
+        this.isShowingMyr = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'INR'){
+        this.isShowingInr = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'CAD'){
+        this.isShowingCad = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'CHF'){
+        this.isShowingChf = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'EUR'){
         this.isShowingEur = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'IDR'){
+        this.isShowingIdr = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'KRW'){
+        this.isShowingKrw = true
+        this.isHide = false
+        this.isShowing = true
+      }else if(this.addCurrency == 'GBP'){
+        this.isShowingGbp = true
         this.isHide = false
         this.isShowing = true
       }
@@ -372,234 +439,5 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-body {
-  background-color: #6CE2CE !important;
-}
-
-h4 {
-  color: #fff !important;
-  font-size: 20px !important;
-  font-weight: normal !important;
-}
-
-h3 {
-  color: #5A5A5A !important;
-  font-size: 49px !important;
-  font-weight: 700 !important;
-  margin-bottom: 2px !important;
-  margin-top: -3px !important;
-}
-
-a:hover {
-  opacity: 0.8;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-}
-
-select > option {
-  padding:10px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4A9AE9; 
-  border-radius: 10px;
-  opacity: 0.8;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #4A9AE9; 
-  opacity: 1;
-}
-
-.box {
-  position:absolute !important;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:99;
-  margin:auto;
-  height:720px;
-  width:70% !important;
-  background: #fff;
-  border-radius: 40px;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.16);
-}
-
-.box-header {
-  height: 125px;
-  background: #4A9AE9;
-  border-radius: 40px 40px 0 0;
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.box-header-left {
-  padding: 30px 0 30px 67px !important;
-}
-
-.box-header-right {
-  padding: 40px 67px 30px 0 !important;
-}
-
-.bold {
-  font-weight: 700 !important;
-}
-
-.currency-usd {
-  width: 268px;
-  height: 40px;
-  padding: 15px 15px 15px;
-  padding-left:30px;
-  background-image: url(../assets/img/dollars.png);
-  background-position: 12px 7px;
-  background-size: 10px;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  color: #5A5A5A;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-  float: right;
-  font-weight: 600;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.16);
-}
-
-.box-body {
-  padding:20px 40px;
-  margin-top: 20px;
-  width:100%;
-  height: 550px;
-  overflow-y: scroll;
-}
-
-.card-currency {
-  width: 100%;
-  background-color: #F1F1F1;
-  height: 150px;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.16);
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.card-currency-info {
-  width: auto;
-  height: 100%;
-  float: left;
-  padding: 20px 30px;
-}
-
-.about-currency {
-  color:#5A5A5A;
-  font-size: 18px;
-  margin-bottom: 0px;
-  font-weight: 500;
-}
-
-.total-currency {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.ex-currency {
-  color:#5A5A5A;
-  font-size: 18px;
-  margin-bottom: 0px;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.card-currency-delete {
-  background-color: #fff;
-  border-radius: 0 20px 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.delete:hover {
-  transition: all 0.3s ease-in-out;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.add-currency {
-  height: 75px;
-  background-color: #D6D6D6;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.16);
-  color:#5A5A5A;
-  justify-content: center;
-  display: flex;
-  align-items:center;
-  border-radius: 20px;
-  border:none;
-  outline: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-}
-
-.add-currency:hover {
-  border:none;
-  outline: none;
-  -webkit-appearance: none;
-}
-
-.col-centered{
-  float: none;
-  margin: 0 auto;
-}
-
-.add {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.hide {
-  display: none;
-}
-
-.add-option {
-  background: #fff;
-  width:70%;
-  padding: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #5A5A5A;
-  border-radius: 20px 0 0 20px;
-  border:2px solid #4A9AE9;
-  outline: none;
-  -webkit-appearance: none;
-}
-
-.btn-add {
-  width:30%;
-  background: #4A9AE9;
-  color: #fff;
-  font-size: 18px;
-  padding: 15px;
-  font-weight: 600;
-  border:2px solid #4A9AE9;
-  outline: none;
-  -webkit-appearance: none;
-  border-radius: 0 20px 20px 0;
-}
-
-.btn-add:hover {
-  cursor: pointer;
-  outline: none;
-}
+<style scoped>
 </style>
